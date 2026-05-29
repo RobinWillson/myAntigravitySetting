@@ -7,6 +7,7 @@ antigravity-backup/
 
 # Sensitive Credentials, Tokens, & Auth Data (Extremely Important!)
 .env/
+r103_gcloud_API_Auth/
 
 # Browser profiles (contains session cookies, passwords, history)
 antigravity-browser-profile/
