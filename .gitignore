@@ -42,8 +42,11 @@ antigravity/antigravity_state.pbtxt
 antigravity/mcp_config.json
 antigravity/onboarding.json
 antigravity/onboarding.json.lock
+*.code-workspace
 
 # Dynamic Caches & Locks
 *_cache.json
 *.log
 *.lock
+
+
