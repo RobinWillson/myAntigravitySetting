@@ -1,0 +1,48 @@
+# macOS system files
+.DS_Store
+
+# Temporary files & backups
+tmp/
+antigravity-backup/
+
+# Sensitive Credentials, Tokens, & Auth Data (Extremely Important!)
+.env/
+
+# Browser profiles (contains session cookies, passwords, history)
+antigravity-browser-profile/
+
+# App Data, Local DBs, History & Transcripts
+antigravity-ide/
+history/
+
+# System Config (ignore other configs but share plugins)
+config/*
+!config/plugins/
+
+# Python Virtual Environment
+skills_py_env/
+
+# Antigravity Runtime & State Directories
+antigravity/brain/
+antigravity/browser_recordings/
+antigravity/context_state/
+antigravity/conversations/
+antigravity/html_artifacts/
+antigravity/implicit/
+antigravity/knowledge/
+antigravity/mcp/
+antigravity/playground/
+antigravity/annotations/
+
+# Antigravity Runtime Files
+antigravity/installation_id
+antigravity/agyhub_summaries_proto.pb
+antigravity/antigravity_state.pbtxt
+antigravity/mcp_config.json
+antigravity/onboarding.json
+antigravity/onboarding.json.lock
+
+# Dynamic Caches & Locks
+*_cache.json
+*.log
+*.lock
