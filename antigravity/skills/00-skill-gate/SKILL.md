@@ -1,6 +1,6 @@
 ---
 name: 00-skill-gate
-description: "技能守門員。必須在所有對話的最開始執行。它會攔截使用者的初始輸入，並將其與所有已安裝的全局和專案技能/MCP 進行比對，判斷是否有適用的工具，並列出選項供使用者選擇。在每次對話中請務必最先執行此技能，以防止重複任務並引導工具選擇。同時處理 /00-skill-gate 與 /00 命令選單。"
+description: "技能守門員。必須在所有對話的最開始執行。它會攔截使用者的初始輸入，並將其與所有已安裝的全局和專案技能/MCP 進行比對，判斷是否有適用的工具，並列出選項供使用者選擇。在每次對話中請務必最先執行此技能，以防止重複任務並引導工具選擇。同時處理 /00-skill-gate 與 /gate 命令選單。"
 ---
 
 # 00-Skill-Gate (技能守門員)
@@ -48,9 +48,9 @@ description: "技能守門員。必須在所有對話的最開始執行。它會
 
 ---
 
-## 🛠️ 流程 2：指令功能選單 (`/00-skill-gate` 或 `/00`)
+## 🛠️ 流程 2：指令功能選單 (`/00-skill-gate` 或 `/gate`)
 
-當使用者輸入 `/00-skill-gate` 或 `/00` 時，觸發交互式主選單。
+當使用者輸入 `/00-skill-gate` 或 `/gate` 時，觸發交互式主選單。
 
 ### 步驟
 
@@ -76,10 +76,36 @@ description: "技能守門員。必須在所有對話的最開始執行。它會
    - 執行掃描腳本：
      - Force 模式：`node scripts/scan-gate-skills.js --mode force`
      - Quick 模式：`node scripts/scan-gate-skills.js --mode quick`
-   - **關鍵輸出格式**：讀取生成的原始 JSON 檔案，進行優雅的繁體中文翻譯與語意分析，**產出完全符合 `skill-list-template.md` 格式與排版的繁體中文 `global-skill-list.md` 檔案**。同時更新 `global-skill-list.json`（其中此 JSON 檔不包含描述欄位，僅保留名稱、路徑與 MCP 標記）。
+   - 讀取 `cache-task.json`
+   - **User_Note 載入與保護機制 (重要！)**：
+     - 讀取獨立的備份檔案 `asset/user-notes.md`（若存在），解析出各技能對應的 `User_Note` 手寫內容。
+     - 讀取現存的 `global-skill-list.md`（若存在），解析出各技能對應的 `### [User_Note]` 底下內容。
+     - 將上述兩處讀取到的筆記進行合併（以 `user-notes.md` 內容優先），建立筆記映射表。
+   - **關鍵輸出格式**：
+     - 讀取 `cache-task.json` 檔案。如果此 JSON 陣列為空 `[]`，表示無新技能。Agent 需將提取的舊筆記與現有 MD 重新確認，並同步寫回/更新 `asset/user-notes.md` 進行備份，然後向使用者回報更新完成。
+     - 如果陣列不為空，Agent 僅對列在 `cache-task.json` 中的技能，讀取其對應的 `SKILL.md` / `plugin.json` 進行翻譯與描述編寫。
+     - **Force 模式**：重新翻譯所有技能，重組時填入對應的 `User_Note` 內容。將最終產出依 `skill-list-template.md` 格式完整覆寫寫入 `global-skill-list.md`。
+     - **Quick 模式**：讀取現有的 `global-skill-list.md`，將新增技能的翻譯描述增量併入 Markdown 中，其餘舊技能描述與對應 `User_Note` 完整保留。
+     - **孤兒備忘保留**：檢查筆記映射表中，是否有未配對到任何目前技能的筆記。若有，必須在 `global-skill-list.md` 最底部追加 `## ⚠️ 孤兒備忘錄 (Orphan Notes)` 區塊將其安全保留，防止遺失。
+     - **雙向備份同步**：最後，Agent 應自動將合併後完整的筆記映射表更新並寫回 `asset/user-notes.md` 中，確保使用者手寫的內容隨時都有實體檔案安全備份。
 
 4. **操作：Update project skills (更新專案技能)**：
    - **注意**：如果工作區路徑位於 `C:\Users\9910008\.gemini\antigravity` 等全局配置資料夾中，應自動排除並跳過專案技能的生成，以防止目錄污染。
+   - 呼叫 `ask_question` 工具：
+     - **問題 (Question)**: "請選擇更新模式："
+     - **選項 (Options)**:
+       - `"Force (強制重新整理：全面掃描與語意重寫)"`
+       - `"Quick (快速更新：只掃描增量技能)"`
    - 執行掃描腳本：
-     - `node scripts/scan-gate-skills.js --mode force --workspace <當前工作區路徑>`
-   - **關鍵輸出格式**：進行繁體中文翻譯與語意分析，並將產出的專案技能檔案**依照 `skill-list-template.md` 樣板格式**以繁體中文寫入專案目錄下的 `project-skill-list.md`，同時更新 `project-skill-list.json`。
+     - Force 模式：`node scripts/scan-gate-skills.js --mode force --workspace <當前工作區路徑>`
+     - Quick 模式：`node scripts/scan-gate-skills.js --mode quick --workspace <當前工作區路徑>`
+   - 讀取 `project-cache-task.json`
+   - **User_Note 載入與保護機制 (重要！)**：
+     - 讀取專案下的獨立備份檔案 `.agent/skills/00-skill-gate/asset/project-user-notes.md`（若存在）。
+     - 讀取現有的 `project-skill-list.md`（若存在），提取 `### [User_Note]` 的內容並建立映射表（獨立備份優先）。
+   - **關鍵輸出格式**：
+     - 讀取 `project-cache-task.json` 檔案。如果為空 `[]`，表示無新專案技能，Agent 同步備份筆記後回報完成。
+     - 如果不為空，僅對列在 JSON 中的技能讀取檔案進行翻譯描述。
+     - **Force 模式**：重新翻譯所有專案技能，回填 `User_Note` 筆記，完整覆寫專案目錄下的 `project-skill-list.md`。
+     - **Quick 模式**：讀取現有的 `project-skill-list.md`，將新增技能的翻譯描述增量併入 Markdown 中，其餘舊有描述與筆記保留。
+     - **孤兒備忘與雙向備份**：比對後剩餘的未配對筆記寫入 Markdown 尾部的 `## ⚠️ 孤兒備忘錄 (Orphan Notes)`。最後，將完整合併的專案筆記寫回 `.agent/skills/00-skill-gate/asset/project-user-notes.md` 進行備份。
