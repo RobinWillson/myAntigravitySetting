@@ -3,56 +3,56 @@
 ---
 
 ## 00-skill-gate
-[00-skill-gate](C:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/SKILL.md)
+  [00-skill-gate](C:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/SKILL.md)
 
-* [功能簡介]:
-  - 在所有對話的最開始執行。引導使用者選擇工具
-  - 將其與所有已安裝的全局和專案技能/MCP 進行比對，判斷是否有適用的工具，並列出選項供使用者選擇。
-  - 同時具有工具清單整理的功能
-* [User_Note]
+  * [功能簡介]:
+    - 在所有對話的最開始執行。引導使用者選擇工具
+    - 將其與所有已安裝的全局和專案技能/MCP 進行比對，判斷是否有適用的工具，並列出選項供使用者選擇。
+    - 同時具有工具清單整理的功能
+  * [User_Note]
 
-* [觸發條件]:
-  - "/00-skill-gate"
-  - "/00"
+  * [觸發條件]:
+    - "/00-skill-gate"
+    - "/00"
 
 ## find-skills
-[find-skills](C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md)
+  [find-skills](C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md)
 
-* [功能簡介]:
-  - 協助使用者發現與安裝 Agent 技能。
-  - 當提出諸如「如何做 X」、「尋找 X 技能」、「是否有能做...的技能」時，使用此技能以尋找安裝選項。
-* [User_Note]
+  * [功能簡介]:
+    - 協助使用者發現與安裝 Agent 技能。
+    - 當提出諸如「如何做 X」、「尋找 X 技能」、「是否有能做...的技能」時，使用此技能以尋找安裝選項。
+  * [User_Note]
 
-* [觸發條件]:
-  - "依照意圖匹配觸發"
+  * [觸發條件]:
+    - "依照意圖匹配觸發"
 
 ## gstack
-[gstack](C:/Users/9910008/.gemini/antigravity/skills/gstack/SKILL.md)
+  [gstack](C:/Users/9910008/.gemini/antigravity/skills/gstack/SKILL.md)
 
-* [功能簡介]:
-  - GStack 虛擬工程團隊與 Playwright 瀏覽器測試工具。
-  - 提供角色斜線指令（如 /office-hours, /plan-ceo-review, /review, /qa, /ship 等）。
-  - 提供 headless 瀏覽器功能進行 E2E/QA 驗證。
-* [User_Note]
+  * [功能簡介]:
+    - GStack 虛擬工程團隊與 Playwright 瀏覽器測試工具。
+    - 提供角色斜線指令（如 /office-hours, /plan-ceo-review, /review, /qa, /ship 等）。
+    - 提供 headless 瀏覽器功能進行 E2E/QA 驗證。
+  * [User_Note]
 
-* [觸發條件]:
-  - "/office-hours"
-  - "/plan-ceo-review"
-  - "/plan-eng-review"
-  - "/review"
-  - "/qa"
-  - "/ship"
+  * [觸發條件]:
+    - "/office-hours"
+    - "/plan-ceo-review"
+    - "/plan-eng-review"
+    - "/review"
+    - "/qa"
+    - "/ship"
 
 ## skill-creator
-[skill-creator](C:/Users/9910008/.gemini/antigravity/skills/skill-creator/SKILL.md)
+  [skill-creator](C:/Users/9910008/.gemini/antigravity/skills/skill-creator/SKILL.md)
 
-* [功能簡介]:
-  - 建立新技能、修改與優化既有技能，並評估技能效能。
-  - 適用於從頭建立技能、編輯或調整技能、執行評測、基準測試，或優化技能的觸發描述。
-* [User_Note]
+  * [功能簡介]:
+    - 建立新技能、修改與優化既有技能，並評估技能效能。
+    - 適用於從頭建立技能、編輯或調整技能、執行評測、基準測試，或優化技能的觸發描述。
+  * [User_Note]
 
-* [觸發條件]:
-  - "/skill-test"
+  * [觸發條件]:
+    - "/skill-test"
 
 ## skill-manager
 [skill-manager](C:/Users/9910008/.gemini/antigravity/skills/skill-manager/SKILL.md)
