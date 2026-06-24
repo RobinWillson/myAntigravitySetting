@@ -1,13 +1,8 @@
 [
   {
-    "name": "00-skill-gate",
+    "name": "mcp-chrome",
     "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/SKILL.md"
-  },
-  {
-    "name": "find-skills",
-    "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md"
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/mcp-chrome/SKILL.md"
   },
   {
     "name": "gstack",
@@ -20,14 +15,9 @@
     "path": "C:/Users/9910008/.gemini/antigravity/skills/skill-creator/SKILL.md"
   },
   {
-    "name": "skill-manager",
+    "name": "00-skill-gate",
     "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/antigravity/skills/skill-manager/SKILL.md"
-  },
-  {
-    "name": "skill-security-scan",
-    "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/antigravity/skills/skill-security-scan/SKILL.md"
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/SKILL.md"
   },
   {
     "name": "a11y-debugging",
@@ -35,9 +25,24 @@
     "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/a11y-debugging/SKILL.md"
   },
   {
+    "name": "android-cli-plugin",
+    "isMCP": true,
+    "path": "C:/Users/9910008/.gemini/config/plugins/android-cli-plugin/plugin.json"
+  },
+  {
     "name": "chrome-devtools",
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/chrome-devtools/SKILL.md"
+  },
+  {
+    "name": "chrome-devtools-plugin",
+    "isMCP": true,
+    "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/plugin.json"
+  },
+  {
+    "name": "chrome-extensions",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/chrome-extensions/SKILL.md"
   },
   {
     "name": "debug-optimize-lcp",
@@ -45,14 +50,14 @@
     "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/debug-optimize-lcp/SKILL.md"
   },
   {
-    "name": "memory-leak-debugging",
+    "name": "find-skills",
     "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md"
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md"
   },
   {
-    "name": "troubleshooting",
-    "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/troubleshooting/SKILL.md"
+    "name": "firebase",
+    "isMCP": true,
+    "path": "C:/Users/9910008/.gemini/config/plugins/firebase/plugin.json"
   },
   {
     "name": "firebase-ai-logic-basics",
@@ -105,19 +110,14 @@
     "path": "C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_security_rules_auditor/SKILL.md"
   },
   {
-    "name": "xcode-project-setup",
-    "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/config/plugins/firebase/skills/xcode_project_setup/SKILL.md"
-  },
-  {
     "name": "google-antigravity-sdk",
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/config/plugins/google-antigravity-sdk/skills/google-antigravity-sdk/SKILL.md"
   },
   {
-    "name": "chrome-extensions",
+    "name": "memory-leak-debugging",
     "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/chrome-extensions/SKILL.md"
+    "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md"
   },
   {
     "name": "modern-web-guidance",
@@ -125,23 +125,33 @@
     "path": "C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/modern-web-guidance/SKILL.md"
   },
   {
-    "name": "android-cli-plugin",
-    "isMCP": true,
-    "path": "C:/Users/9910008/.gemini/config/plugins/android-cli-plugin/plugin.json"
-  },
-  {
-    "name": "chrome-devtools-plugin",
-    "isMCP": true,
-    "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/plugin.json"
-  },
-  {
-    "name": "firebase",
-    "isMCP": true,
-    "path": "C:/Users/9910008/.gemini/config/plugins/firebase/plugin.json"
-  },
-  {
     "name": "modern-web-guidance-plugin",
     "isMCP": true,
     "path": "C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/plugin.json"
+  },
+  {
+    "name": "skill-manager",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/skill-manager/SKILL.md"
+  },
+  {
+    "name": "skill-security-scan",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/skill-security-scan/SKILL.md"
+  },
+  {
+    "name": "troubleshooting",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/troubleshooting/SKILL.md"
+  },
+  {
+    "name": "vs-markdown-collab",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/vs-markdown-collab/SKILL.md"
+  },
+  {
+    "name": "xcode-project-setup",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/config/plugins/firebase/skills/xcode_project_setup/SKILL.md"
   }
 ]

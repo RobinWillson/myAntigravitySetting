@@ -1,20 +1,5 @@
 [
   {
-    "name": "mcp-chrome",
-    "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/antigravity/skills/mcp-chrome/SKILL.md"
-  },
-  {
-    "name": "gstack",
-    "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/antigravity/skills/gstack/SKILL.md"
-  },
-  {
-    "name": "skill-creator",
-    "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/antigravity/skills/skill-creator/SKILL.md"
-  },
-  {
     "name": "00-skill-gate",
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/SKILL.md"
@@ -115,6 +100,16 @@
     "path": "C:/Users/9910008/.gemini/config/plugins/google-antigravity-sdk/skills/google-antigravity-sdk/SKILL.md"
   },
   {
+    "name": "gstack",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/gstack/SKILL.md"
+  },
+  {
+    "name": "mcp-chrome",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/mcp-chrome/SKILL.md"
+  },
+  {
     "name": "memory-leak-debugging",
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md"
@@ -128,6 +123,11 @@
     "name": "modern-web-guidance-plugin",
     "isMCP": true,
     "path": "C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/plugin.json"
+  },
+  {
+    "name": "skill-creator",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/skill-creator/SKILL.md"
   },
   {
     "name": "skill-manager",

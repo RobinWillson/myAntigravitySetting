@@ -1,56 +1,52 @@
 ---
 name: 00-skill-gate
-description: "技能守門員。必須在所有對話的最開始執行。它會攔截使用者的初始輸入，並將其與所有已安裝的全局和專案技能/MCP 進行比對，判斷是否有適用的工具，並列出選項供使用者選擇。在每次對話中請務必最先執行此技能，以防止重複任務並引導工具選擇。同時處理 /00-skill-gate 與 /gate 命令選單。"
+description: "技能守門員。當 Agent 評估任務可能需要使用技能時作為查詢與攔截之用。它會引導 Agent 讀取清單並詢問使用者，防止擅自執行技能。同時處理 /00-skill-gate 與 /gate 等命令選單。"
 ---
 
 # 00-Skill-Gate (技能守門員)
 
-此技能作為智能守門員，在每個對話會話開始時執行，以識別相關工具、防止重複工作，並提供用於掃描技能的管理選單。
+此技能作為智能守門員，在評估任務需要使用技能時觸發，以協助識別相關工具、防止重複工作與擅自執行，並提供用於掃描技能的管理選單。
 
 ---
 
-## 🛡️ 流程 1：對話攔截與過濾 (Interception Flow)
+## 🛡️ 流程 1：技能挑選與過濾 (Skill Selection Flow)
 
-在**每一次對話的最開始**，執行 Agent 必須在執行 any other task 之前先執行此邏輯。
+在**每次接收任務且判斷需要使用技能時**，執行 Agent 必須先執行此邏輯，不可任意盲目啟動技能。
 
 ### 步驟與邏輯
 
-1. **讀取已安裝的技能與 MCP**：
-   - 讀取全局技能清單：[global-skill-list.md](file:///c:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/asset/global-skill-list.md) (或本地路徑 `asset/global-skill-list.md`)。
-   - 若在非全局的專案工作區中，讀取專案清單：`asset/project-skill-list.md` 或 [project-skill-list.md](file:///project-folder/.agent/skills/00-skill-gate/asset/project-skill-list.md)。
+1. **強制攔截與讀取清單**：
+   - 準備呼叫任何技能前，你必須先去讀取以下的技能清單，從清單中確認並挑選最適合的技能：
+     - 全局技能清單：[global-skill-list.md](asset/global-skill-list.md)
+     - 專案清單 (若在專案中)：[project-skill-list.md](file:///project-folder/.agent/skills/00-skill-gate/asset/project-skill-list.md)
 
-2. **分析使用者輸入**：
-   - 將使用者的意圖與所有列出的技能及 MCP 的描述和關鍵字進行比對。
-   - 如果**沒有明確匹配**，則靜默跳過此技能，直接執行使用者的原始請求。
+2. **向使用者說明並徵求同意 (MANDATORY)**：
+   - 挑選後，**必須先向使用者說明並詢問**。
+   - 將匹配的技能或 MCP 列在結構化選單中請使用者選擇。
+   - 獲得使用者明確同意後，才能開始載入並執行該技能；若拒絕則依照原始意圖執行，不得擅自呼叫技能。
 
-3. **向使用者呈現選擇**：
-   - 如果發現一個或多個可能匹配的技能或 MCP，將它們清晰地列在結構化選單中，並請使用者選擇。
-   - **關鍵**：務必在列表最後加上一個選項：`"不使用技能"`。
+### 攔截詢問範本
 
-### 攔截呈現範本
-
-發現技能匹配時，請使用以下完全相同的格式呈現：
+發現技能匹配準備呼叫前，請使用 `ask_question` 工具或輸出以下格式向使用者確認：
 
 ```markdown
-🎯 **偵測到可能適用的 Antigravity 技能或 MCP 工具：**
+🎯 **為了完成這個任務，我建議使用以下工具，請問是否同意執行？**
 
-請選擇您想啟動的技能，或選擇不使用：
-
-1. 🛠️ **[技能名稱 A]**：[150字簡短說明]
-2. 🔌 **[MCP名稱 B]**：[150字簡短說明]
+1. 🛠️ **[技能/MCP名稱 A]**：[150字簡短說明]
+2. 🔌 **[技能/MCP名稱 B]**：[150字簡短說明]
 3. ❌ **不使用技能** (直接依原句執行)
-
-請直接輸入選項編號（例如 `1`）或點擊選項。
 ```
 
-- 如果使用者選擇了某個技能/MCP，立即載入並切換至該技能執行。
+- 如果使用者選擇了某個技能/MCP：
+  1. **記錄技能呼叫歷史**：你必須立即讀取 `~/.gemini/antigravity/skills/00-skill-gate/asset/call-skill-history.json`（若檔案不存在，請先建立為 `[]`），將新物件 `{ "datetime": "當前本地時間", "skill": "技能名稱" }`（例如：`{ "datetime": "2026-06-21 17:27:00", "skill": "mcp-chrome" }`）append 至陣列尾端，並寫回檔案。
+  2. 立即載入並切換至該技能執行。
 - 如果使用者選擇了「不使用技能」或拒絕使用，則直接依照使用者原始請求執行，不觸發任何特定技能。
 
 ---
 
-## 🛠️ 流程 2：指令功能選單 (`/00-skill-gate` 或 `/gate`)
+## 🛠️ 流程 2：指令功能選單 (`/00-skill-gate` 或 `/gate` 或 `/skill-gate`)
 
-當使用者輸入 `/00-skill-gate` 或 `/gate` 時，觸發交互式主選單。
+當使用者輸入 `/00-skill-gate` 或 `/gate` 或 `/skill-gate` 時，觸發交互式主選單。
 
 ### 步驟
 
@@ -63,7 +59,7 @@ description: "技能守門員。必須在所有對話的最開始執行。它會
 
 2. **操作：List all skills (列出所有技能)**：
    - 顯示指向完整清單的直接點擊連結：
-     - 👉 **[全域技能清單 (global-skill-list.md)](file:///c:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/asset/global-skill-list.md)**
+     - 👉 **[全域技能清單 (global-skill-list.md)](asset/global-skill-list.md)**
      - 👉 **[專案技能清單 (project-skill-list.md)](file:///project-folder/.agent/skills/00-skill-gate/asset/project-skill-list.md)**
    - 保持回應極度乾淨輕量，不要在對話框中渲染完整表格。
 
@@ -84,7 +80,7 @@ description: "技能守門員。必須在所有對話的最開始執行。它會
    - **關鍵輸出格式**：
      - 讀取 `cache-task.json` 檔案。如果此 JSON 陣列為空 `[]`，表示無新技能。Agent 需將提取的舊筆記與現有 MD 重新確認，並同步寫回/更新 `asset/user-notes.md` 進行備份，然後向使用者回報更新完成。
      - 如果陣列不為空，Agent 僅對列在 `cache-task.json` 中的技能，讀取其對應的 `SKILL.md` / `plugin.json` 進行翻譯與描述編寫。
-     - **Force 模式**：重新翻譯所有技能，重組時填入對應的 `User_Note` 內容。將最終產出依 `skill-list-template.md` 格式完整覆寫寫入 `global-skill-list.md`。
+     - **Force 模式**：重新翻譯所有技能，重組時填入對應的 `User_Note` 內容。將最終產出依 `skill-list-template.md` 格式完整覆寫寫入 `global-skill-list.md`。注意：重組 `global-skill-list.md` 時，必須嚴格依照 `global-skill-list.json` 中已排好的技能順序來渲染，將最常用的技能（JSON 中排在前面的）寫在最上方。
      - **Quick 模式**：讀取現有的 `global-skill-list.md`，將新增技能的翻譯描述增量併入 Markdown 中，其餘舊技能描述與對應 `User_Note` 完整保留。
      - **孤兒備忘保留**：檢查筆記映射表中，是否有未配對到任何目前技能的筆記。若有，必須在 `global-skill-list.md` 最底部追加 `## ⚠️ 孤兒備忘錄 (Orphan Notes)` 區塊將其安全保留，防止遺失。
      - **雙向備份同步**：最後，Agent 應自動將合併後完整的筆記映射表更新並寫回 `asset/user-notes.md` 中，確保使用者手寫的內容隨時都有實體檔案安全備份。

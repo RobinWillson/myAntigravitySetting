@@ -2,81 +2,59 @@
 
 ---
 
-## 00-skill-gate
-  [00-skill-gate](C:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/SKILL.md)
+## mcp-chrome
+[mcp-chrome](C:/Users/9910008/.gemini/antigravity/skills/mcp-chrome/SKILL.md)
 
-  * [功能簡介]:
-    - 在所有對話的最開始執行。引導使用者選擇工具
-    - 將其與所有已安裝的全局和專案技能/MCP 進行比對，判斷是否有適用的工具，並列出選項供使用者選擇。
-    - 同時具有工具清單整理的功能
-  * [User_Note]
-
-  * [觸發條件]:
-    - "/00-skill-gate"
-    - "/00"
-
-## find-skills
-  [find-skills](C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md)
-
-  * [功能簡介]:
-    - 協助使用者發現與安裝 Agent 技能。
-    - 當提出諸如「如何做 X」、「尋找 X 技能」、「是否有能做...的技能」時，使用此技能以尋找安裝選項。
-  * [User_Note]
-
-  * [觸發條件]:
-    - "依照意圖匹配觸發"
+* [功能簡介]:
+  - 使用您的日常 Chrome 瀏覽器進行自動化操作與調試。
+  - 保留使用者的登入狀態與配置，避免無痕視窗帶來的困擾。
+* [User_Note]
+  - 設定於 mcp_config.json 之中。
+  - 用以替代原本的 chrome-devtools。
+* [觸發條件]:
+  - "任何意圖執行 Chrome 瀏覽器相關的任務"
 
 ## gstack
-  [gstack](C:/Users/9910008/.gemini/antigravity/skills/gstack/SKILL.md)
+[gstack](C:/Users/9910008/.gemini/antigravity/skills/gstack/SKILL.md)
 
-  * [功能簡介]:
-    - GStack 虛擬工程團隊與 Playwright 瀏覽器測試工具。
-    - 提供角色斜線指令（如 /office-hours, /plan-ceo-review, /review, /qa, /ship 等）。
-    - 提供 headless 瀏覽器功能進行 E2E/QA 驗證。
-  * [User_Note]
+* [功能簡介]:
+  - GStack 虛擬工程團隊與 Playwright 瀏覽器測試工具。
+  - 提供角色斜線指令（如 /office-hours, /plan-ceo-review, /review, /qa, /ship 等）。
+  - 提供 headless 瀏覽器功能進行 E2E/QA 驗證。
+* [User_Note]
 
-  * [觸發條件]:
-    - "/office-hours"
-    - "/plan-ceo-review"
-    - "/plan-eng-review"
-    - "/review"
-    - "/qa"
-    - "/ship"
+* [觸發條件]:
+  - "/office-hours"
+  - "/plan-ceo-review"
+  - "/plan-eng-review"
+  - "/review"
+  - "/qa"
+  - "/ship"
 
 ## skill-creator
-  [skill-creator](C:/Users/9910008/.gemini/antigravity/skills/skill-creator/SKILL.md)
-
-  * [功能簡介]:
-    - 建立新技能、修改與優化既有技能，並評估技能效能。
-    - 適用於從頭建立技能、編輯或調整技能、執行評測、基準測試，或優化技能的觸發描述。
-  * [User_Note]
-
-  * [觸發條件]:
-    - "/skill-test"
-
-## skill-manager
-[skill-manager](C:/Users/9910008/.gemini/antigravity/skills/skill-manager/SKILL.md)
+[skill-creator](C:/Users/9910008/.gemini/antigravity/skills/skill-creator/SKILL.md)
 
 * [功能簡介]:
-  - 管理所有本機安裝的 Antigravity Agent 技能與工作流。
-  - 提供 /skill-manager 指令進行目錄掃描與清單列表呈現。
+  - 建立新技能、修改與優化既有技能，並評估技能效能。
+  - 適用於從頭建立技能、編輯或調整技能、執行評測、基準測試，或優化技能的觸發描述。
 * [User_Note]
 
 * [觸發條件]:
-  - "/ship"
-  - "/qa"
-  - "/slash"
+  - "/skill-test"
 
-## skill-security-scan
-[skill-security-scan](C:/Users/9910008/.gemini/antigravity/skills/skill-security-scan/SKILL.md)
+## 00-skill-gate
+[00-skill-gate](C:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/SKILL.md)
 
 * [功能簡介]:
-  - 掃描與檢驗其他 Agent 技能的安全風險（例如網絡請求、任意指令執行、文件系統存取）。
-  - 適用於審查、檢查或驗證本機或第三方技能的安全性。
+  - 在所有對話的最開始執行。引導使用者選擇工具
+  - 將其與所有已安裝的全局和專案技能/MCP 進行比對，判斷是否有適用的工具，並列出選項供使用者選擇。
+  - 同時具有工具清單整理的功能
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "/00-skill-gate"
+  - "/gate"
+  - "/skill-gate"
 
 ## a11y-debugging
 [a11y-debugging](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/a11y-debugging/SKILL.md)
@@ -89,12 +67,45 @@
 * [觸發條件]:
   - "依照意圖匹配觸發"
 
+## android-cli-plugin
+[android-cli-plugin](C:/Users/9910008/.gemini/config/plugins/android-cli-plugin/plugin.json)
+
+* [功能簡介]:
+  - Android 開發所需的核心命令行工具與開發知識庫。
+* [User_Note]
+
+* [觸發條件]:
+  - "藉由呼叫 MCP 工具或 API 執行"
+
 ## chrome-devtools
 [chrome-devtools](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/chrome-devtools/SKILL.md)
 
 * [功能簡介]:
   - 使用 Chrome 開發者工具進行高效調試、故障排除與瀏覽器自動化。
   - 用於調試網頁、自動化網頁交互、效能分析或網絡請求審查。
+* [User_Note]
+  - 停用
+  - 它永遠會開一個無痕視窗, 會導致登入狀態遺失
+  - 以 MCP Chrome 替代
+* [觸發條件]:
+  - "依照意圖匹配觸發"
+
+## chrome-devtools-plugin
+[chrome-devtools-plugin](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/plugin.json)
+
+* [功能簡介]:
+  - 使用 Chrome 開發者工具與 Puppeteer 實現 Chrome 瀏覽器的可靠自動化、深度調試與效能分析。
+* [User_Note]
+
+* [觸發條件]:
+  - "藉由呼叫 MCP 工具或 API 執行"
+
+## chrome-extensions
+[chrome-extensions](C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/chrome-extensions/SKILL.md)
+
+* [功能簡介]:
+  - 基於 Manifest V3 最佳實踐的 Chrome 瀏覽器擴充功能開發指南。
+  - 適用於開發、修改或調試 Content Scripts、Service Workers、Popup、Side Panel。
 * [User_Note]
 
 * [觸發條件]:
@@ -111,27 +122,26 @@
 * [觸發條件]:
   - "依照意圖匹配觸發"
 
-## memory-leak-debugging
-[memory-leak-debugging](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md)
+## find-skills
+[find-skills](C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md)
 
 * [功能簡介]:
-  - 診斷與解決 JavaScript/Node.js 應用程式中的記憶體流失。
-  - 用於記憶體佔用過高、記憶體溢出（OOM）錯誤分析、堆積快照（heap snapshot）比對。
+  - 協助使用者發現與安裝 Agent 技能。
+  - 當提出諸如「如何做 X」、「尋找 X 技能」、「是否有能做...的技能」時，使用此技能以尋找安裝選項。
 * [User_Note]
 
 * [觸發條件]:
   - "依照意圖匹配觸發"
 
-## troubleshooting
-[troubleshooting](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/troubleshooting/SKILL.md)
+## firebase
+[firebase](C:/Users/9910008/.gemini/config/plugins/firebase/plugin.json)
 
 * [功能簡介]:
-  - 使用 Chrome 開發者工具調試與解決連線或目標問題。
-  - 在 list_pages、new_page 或導航失敗時觸發。
+  - 提供 Firebase 命令行配置、數據庫管理與託管部署的 MCP 核心外掛。
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "藉由呼叫 MCP 工具或 API 執行"
 
 ## firebase-ai-logic-basics
 [firebase-ai-logic-basics](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_ai_logic_basics/SKILL.md)
@@ -243,17 +253,6 @@
 * [觸發條件]:
   - "依照意圖匹配觸發"
 
-## xcode-project-setup
-[xcode-project-setup](C:/Users/9910008/.gemini/config/plugins/firebase/skills/xcode_project_setup/SKILL.md)
-
-* [功能簡介]:
-  - 安全修改 Xcode 專案結構（.pbxproj）。
-  - 用於添加 Swift 套件依賴、連結檔案（如導入 Firebase、Alamofire 等）。
-* [User_Note]
-
-* [觸發條件]:
-  - "依照意圖匹配觸發"
-
 ## google-antigravity-sdk
 [google-antigravity-sdk](C:/Users/9910008/.gemini/config/plugins/google-antigravity-sdk/skills/google-antigravity-sdk/SKILL.md)
 
@@ -265,12 +264,12 @@
 * [觸發條件]:
   - "依照意圖匹配觸發"
 
-## chrome-extensions
-[chrome-extensions](C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/chrome-extensions/SKILL.md)
+## memory-leak-debugging
+[memory-leak-debugging](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md)
 
 * [功能簡介]:
-  - 基於 Manifest V3 最佳實踐的 Chrome 瀏覽器擴充功能開發指南。
-  - 適用於開發、修改或調試 Content Scripts、Service Workers、Popup、Side Panel。
+  - 診斷與解決 JavaScript/Node.js 應用程式中的記憶體流失。
+  - 用於記憶體佔用過高、記憶體溢出（OOM）錯誤分析、堆積快照（heap snapshot）比對。
 * [User_Note]
 
 * [觸發條件]:
@@ -287,36 +286,6 @@
 * [觸發條件]:
   - "依照意圖匹配觸發"
 
-## android-cli-plugin
-[android-cli-plugin](C:/Users/9910008/.gemini/config/plugins/android-cli-plugin/plugin.json)
-
-* [功能簡介]:
-  - Android 開發所需的核心命令行工具與開發知識庫。
-* [User_Note]
-
-* [觸發條件]:
-  - "藉由呼叫 MCP 工具或 API 執行"
-
-## chrome-devtools-plugin
-[chrome-devtools-plugin](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/plugin.json)
-
-* [功能簡介]:
-  - 使用 Chrome 開發者工具與 Puppeteer 實現 Chrome 瀏覽器的可靠自動化、深度調試與效能分析。
-* [User_Note]
-
-* [觸發條件]:
-  - "藉由呼叫 MCP 工具或 API 執行"
-
-## firebase
-[firebase](C:/Users/9910008/.gemini/config/plugins/firebase/plugin.json)
-
-* [功能簡介]:
-  - 提供 Firebase 命令行配置、數據庫管理與託管部署的 MCP 核心外掛。
-* [User_Note]
-
-* [觸發條件]:
-  - "藉由呼叫 MCP 工具或 API 執行"
-
 ## modern-web-guidance-plugin
 [modern-web-guidance-plugin](C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/plugin.json)
 
@@ -326,3 +295,59 @@
 
 * [觸發條件]:
   - "藉由呼叫 MCP 工具或 API 執行"
+
+## skill-manager
+[skill-manager](C:/Users/9910008/.gemini/antigravity/skills/skill-manager/SKILL.md)
+
+* [功能簡介]:
+  - 管理所有本機安裝的 Antigravity Agent 技能與工作流。
+  - 提供 /skill-manager 指令進行目錄掃描與清單列表呈現。
+* [User_Note]
+
+* [觸發條件]:
+  - "/ship"
+  - "/qa"
+  - "/slash"
+
+## skill-security-scan
+[skill-security-scan](C:/Users/9910008/.gemini/antigravity/skills/skill-security-scan/SKILL.md)
+
+* [功能簡介]:
+  - 掃描與檢驗其他 Agent 技能的安全風險（例如網絡請求、任意指令執行、文件系統存取）。
+  - 適用於審查、檢查或验证本機或第三方技能的安全性。
+* [User_Note]
+
+* [觸發條件]:
+  - "依照意圖匹配觸發"
+
+## troubleshooting
+[troubleshooting](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/troubleshooting/SKILL.md)
+
+* [功能簡介]:
+  - 使用 Chrome 開發者工具調試與解決連線或目標問題。
+  - 在 list_pages、new_page 或導航失敗時觸發。
+* [User_Note]
+
+* [觸發條件]:
+  - "依照意圖匹配觸發"
+
+## vs-markdown-collab
+[vs-markdown-collab](C:/Users/9910008/.gemini/antigravity/skills/vs-markdown-collab/SKILL.md)
+
+* [功能簡介]:
+  - 協助進行 Markdown 文件與程式碼的協同編輯、格式化、自動摘要與語法修正。
+* [User_Note]
+
+* [觸發條件]:
+  - "依照意圖匹配觸發"
+
+## xcode-project-setup
+[xcode-project-setup](C:/Users/9910008/.gemini/config/plugins/firebase/skills/xcode_project_setup/SKILL.md)
+
+* [功能簡介]:
+  - 安全修改 Xcode 專案結構（.pbxproj）。
+  - 用於添加 Swift 套件依賴、連結檔案（如導入 Firebase、Alamofire 等）。
+* [User_Note]
+
+* [觸發條件]:
+  - "依照意圖匹配觸發"

@@ -161,7 +161,7 @@ function main() {
   const workspacePath = wsIndex !== -1 ? args[wsIndex + 1] : null;
 
   const outIndex = args.indexOf('--output');
-  const outputDir = outIndex !== -1 ? args[outIndex + 1] : __dirname;
+  const outputDir = outIndex !== -1 ? args[outIndex + 1] : path.join(__dirname, '..');
 
   const modeIndex = args.indexOf('--mode');
   const mode = modeIndex !== -1 ? args[modeIndex + 1] : 'force';
@@ -290,6 +290,24 @@ function main() {
     fs.mkdirSync(assetDir, { recursive: true });
   }
 
+  // Load call skill history to calculate frequencies
+  const historyPath = path.join(assetDir, 'call-skill-history.json');
+  const historyCounts = {};
+  if (fs.existsSync(historyPath)) {
+    try {
+      const history = JSON.parse(fs.readFileSync(historyPath, 'utf8'));
+      if (Array.isArray(history)) {
+        for (const entry of history) {
+          if (entry && entry.skill) {
+            historyCounts[entry.skill] = (historyCounts[entry.skill] || 0) + 1;
+          }
+        }
+      }
+    } catch (e) {
+      console.log(`Warning: Failed to parse call-skill-history.json: ${e.message}`);
+    }
+  }
+
   // Compile global items
   const globalItems = [...uniqueGlobalSkills, ...uniqueMCPs];
   const globalItemsMapped = globalItems.map(item => ({
@@ -297,6 +315,16 @@ function main() {
     isMCP: item.isMCP,
     path: item.path.replace(/\\/g, '/')
   }));
+
+  // Sort global items by frequency of use (highest first), fallback to alphabetical order
+  globalItemsMapped.sort((a, b) => {
+    const countA = historyCounts[a.name] || 0;
+    const countB = historyCounts[b.name] || 0;
+    if (countB !== countA) {
+      return countB - countA; // Descending frequency
+    }
+    return a.name.localeCompare(b.name); // Alphabetical ascending
+  });
 
   // Identify new global items for cache-task.json
   let newGlobalItems = [];
@@ -330,6 +358,16 @@ function main() {
       name: item.name,
       path: item.path.replace(/\\/g, '/')
     }));
+
+    // Sort project skills by call frequency as well
+    projectItemsMapped.sort((a, b) => {
+      const countA = historyCounts[a.name] || 0;
+      const countB = historyCounts[b.name] || 0;
+      if (countB !== countA) {
+        return countB - countA;
+      }
+      return a.name.localeCompare(b.name);
+    });
 
     // Identify new project items for project-cache-task.json
     let newProjectItems = [];
