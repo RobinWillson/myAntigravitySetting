@@ -19,16 +19,14 @@ description: |
 ## 觸發條件
 - "依照意圖匹配觸發"
 
-## 查詢目前開啟網頁的流程
-當使用者或 Agent 需要查詢目前 Chrome 瀏覽器中開啟的所有視窗與分頁（Tabs）時，可以依循以下流程執行：
+## 查詢目前開啟網頁
+- 執行 `./scripts/get_open_tabs.js`
+- 如需更多詳細資訊，請參考：[get_open_tabs.md](./reference/get_open_tabs.md)
 
-1. **執行查詢腳本**
-   - 執行 [get_open_tabs.js](file:///C:/Users/9910008/.gemini/antigravity/skills/mcp-chrome/scripts/get_open_tabs.js) 腳本。該腳本會透過 stdio 與 `mcp-chrome-bridge` 的 MCP 伺服器建立 JSON-RPC 連線，並發送 `get_windows_and_tabs` 請求。
-   - 指令範例：
-     ```powershell
-     node C:\Users\9910008\.gemini\antigravity\skills\mcp-chrome\scripts\get_open_tabs.js
-     ```
-2. **解析與呈現結果**
-   - 腳本執行完成後會輸出包含 `windowCount`、`tabCount` 與 `windows` 陣列的 JSON 結構。
-   - 應將結果整理成 Markdown 表格，呈現各分頁的標題（Title）、網址（URL）及是否為當前焦點分頁（Active），以便使用者閱讀。
+## 開啟新視窗
+- 執行 `./scripts/open_new_window.js`
+- 如需更多詳細資訊，請參考：[open_new_window.md](./reference/open_new_window.md)
 
+## 開啟新分頁
+- 執行 `./scripts/open_new_tab.js`
+- 如需更多詳細資訊，請參考：[open_new_tab.md](./reference/open_new_tab.md)
