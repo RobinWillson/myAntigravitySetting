@@ -40,9 +40,9 @@
     "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/plugin.json"
   },
   {
-    "name": "chrome-extensions",
+    "name": "chrome-extensions-devtool",
     "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/chrome-extensions/SKILL.md"
+    "path": "C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/chrome-extensions-devtool/SKILL.md"
   },
   {
     "name": "debug-optimize-lcp",
@@ -128,6 +128,11 @@
     "name": "modern-web-guidance-plugin",
     "isMCP": true,
     "path": "C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/plugin.json"
+  },
+  {
+    "name": "safe-searcher",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/safe-searcher/SKILL.md"
   },
   {
     "name": "skill-manager",

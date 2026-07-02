@@ -1,5 +1,5 @@
 ---
-name: chrome-extensions
+name: chrome-extensions-devtool
 description: >
   Build and publish Chrome Extensions using Manifest V3 best practices. Use this skill
   whenever the user asks to create, modify, debug, or understand Chrome browser extensions,

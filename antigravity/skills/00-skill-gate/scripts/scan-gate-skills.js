@@ -161,7 +161,11 @@ function main() {
   const workspacePath = wsIndex !== -1 ? args[wsIndex + 1] : null;
 
   const outIndex = args.indexOf('--output');
-  const outputDir = outIndex !== -1 ? args[outIndex + 1] : path.join(__dirname, '..');
+  let outputDir = outIndex !== -1 ? args[outIndex + 1] : path.join(__dirname, '..');
+  outputDir = path.resolve(outputDir);
+  if (path.basename(outputDir) === 'scripts') {
+    outputDir = path.join(outputDir, '..');
+  }
 
   const modeIndex = args.indexOf('--mode');
   const mode = modeIndex !== -1 ? args[modeIndex + 1] : 'force';

@@ -421,7 +421,7 @@ We grade both outputs and only release guides that demonstrate a massive, quanti
 If you want to customize the skill packs installed and the scope at which they are installed, you can run install with `--choose`.
 
 * **`modern-web-guidance`**: (234 tokens) Everything mentioned above
-* **`chrome-extensions`**: (181 tokens) Manifest V3 development, background service workers, content scripts, and extension APIs. Manage Chrome Web Store metadata, permissions justifications, privacy policies, and publishing readiness.
+* **`chrome-extensions-devtool`**: (181 tokens) Manifest V3 development, background service workers, content scripts, and extension APIs. Manage Chrome Web Store metadata, permissions justifications, privacy policies, and publishing readiness.
 
 ```sh
 # Choose which skills you want

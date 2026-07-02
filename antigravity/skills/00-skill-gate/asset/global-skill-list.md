@@ -10,9 +10,9 @@
   - 保留使用者的登入狀態與配置，避免無痕視窗帶來的困擾。
 * [User_Note]
   - 設定於 mcp_config.json 之中。
-  - 用以替代原本的 chrome-devtools。
+  - 用以替代原本 Graves/chrome-devtools。
 * [觸發條件]:
-  - "任何意圖執行 Chrome 瀏覽器相關的任務"
+  - "任何意圖執行 Chrome 瀏覽器相關的任務（如開啟網頁、點擊、輸入等）時。"
 
 ## gstack
 [gstack](C:/Users/9910008/.gemini/antigravity/skills/gstack/SKILL.md)
@@ -41,6 +41,7 @@
 
 * [觸發條件]:
   - "/skill-test"
+  - "/skill-create"
 
 ## 00-skill-gate
 [00-skill-gate](C:/Users/9910008/.gemini/antigravity/skills/00-skill-gate/SKILL.md)
@@ -56,27 +57,6 @@
   - "/gate"
   - "/skill-gate"
 
-## a11y-debugging
-[a11y-debugging](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/a11y-debugging/SKILL.md)
-
-* [功能簡介]:
-  - 使用 Chrome 開發者工具進行無障礙網頁（a11y）調試與審查。
-  - 基於 web.dev 規範，用於測試語意化 HTML、ARIA 標籤、焦點狀態、鍵盤導航、色彩對比度。
-* [User_Note]
-
-* [觸發條件]:
-  - "依照意圖匹配觸發"
-
-## android-cli-plugin
-[android-cli-plugin](C:/Users/9910008/.gemini/config/plugins/android-cli-plugin/plugin.json)
-
-* [功能簡介]:
-  - Android 開發所需的核心命令行工具與開發知識庫。
-* [User_Note]
-
-* [觸發條件]:
-  - "藉由呼叫 MCP 工具或 API 執行"
-
 ## chrome-devtools
 [chrome-devtools](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/chrome-devtools/SKILL.md)
 
@@ -88,30 +68,31 @@
   - 它永遠會開一個無痕視窗, 會導致登入狀態遺失
   - 以 MCP Chrome 替代
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "需要執行自動化瀏覽器操作、網頁調試、前端效能分析或網路請求審查時。"
 
-## chrome-devtools-plugin
+### a11y-debugging
+[a11y-debugging](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/a11y-debugging/SKILL.md)
+
+* [功能簡介]:
+  - 使用 Chrome 開發者工具進行無障礙網頁（a11y）調試與審查。
+  - 基於 web.dev 規範，用於測試語意化 HTML、ARIA 標籤、焦點狀態、鍵盤導航、色彩對比度。
+* [User_Note]
+
+* [觸發條件]:
+  - "當需要測試或調試語意化 HTML、ARIA 標籤、焦點狀態、鍵盤導航、點擊目標大小（tap targets）或色彩對比度，進行無障礙網頁（a11y）審查時。"
+
+### chrome-devtools-plugin
 [chrome-devtools-plugin](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/plugin.json)
 
 * [功能簡介]:
   - 使用 Chrome 開發者工具與 Puppeteer 實現 Chrome 瀏覽器的可靠自動化、深度調試與效能分析。
 * [User_Note]
-
+  - 停用
+  - 無痕視窗的使用情況太少, 幾乎用不到, MCP Chrome 即可替代 
 * [觸發條件]:
-  - "藉由呼叫 MCP 工具或 API 執行"
+  - "調用 Chrome DevTools/Puppeteer 來自動化瀏覽器操作、深入調試網頁或分析效能時。"
 
-## chrome-extensions
-[chrome-extensions](C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/chrome-extensions/SKILL.md)
-
-* [功能簡介]:
-  - 基於 Manifest V3 最佳實踐的 Chrome 瀏覽器擴充功能開發指南。
-  - 適用於開發、修改或調試 Content Scripts、Service Workers、Popup、Side Panel。
-* [User_Note]
-
-* [觸發條件]:
-  - "依照意圖匹配觸發"
-
-## debug-optimize-lcp
+### debug-optimize-lcp
 [debug-optimize-lcp](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/debug-optimize-lcp/SKILL.md)
 
 * [功能簡介]:
@@ -120,7 +101,51 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "當涉及 LCP（最大內容繪製）效能優化、網頁載入速度慢、核心網頁指標（CWV）優化，或需要診斷首頁主內容/英雄圖載入緩慢原因時。"
+
+### memory-leak-debugging
+[memory-leak-debugging](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md)
+
+* [功能簡介]:
+  - 診斷與解決 JavaScript/Node.js 應用程式中的記憶體流失。
+  - 用於記憶體佔用過高、記憶體溢出（OOM）錯誤分析、堆積快照（heap snapshot）比對。
+* [User_Note]
+
+* [觸發條件]:
+  - "診斷 JavaScript/Node.js 應用程式的高記憶體佔用、溢出（OOM）錯誤，或使用堆積快照（heap snapshots）分析記憶體流失時。"
+
+### troubleshooting
+[troubleshooting](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/troubleshooting/SKILL.md)
+
+* [功能簡介]:
+  - 使用 Chrome 開發者工具調試與解決連線或目標問題。
+  - 在 list_pages、new_page 或導航失敗時觸發。
+* [User_Note]
+
+* [觸發條件]:
+  - "當 `list_pages`、`new_page`、`navigate_page` 失敗，或者 Chrome DevTools MCP 伺服器啟動/連線異常時時。"
+
+## android-cli-plugin
+[android-cli-plugin](C:/Users/9910008/.gemini/config/plugins/android-cli-plugin/plugin.json)
+
+* [功能簡介]:
+  - Android 開發所需的核心命令行工具與開發知識庫。
+* [User_Note]
+
+* [觸發條件]:
+  - "當需要建立、編譯、部署 Android 專案，管理 Android SDK，或執行環境診斷與 `android` 命令行工具操作時。"
+
+## chrome-extensions-devtool
+[chrome-extensions-devtool](chrome-extensions-devtool/SKILL)
+
+* [功能簡介]:
+  - 基於 Manifest V3 最佳實踐的 Chrome 瀏覽器擴充功能開發指南。
+  - 適用於開發、修改或調試 Content Scripts、Service Workers、Popup、Side Panel。
+* [User_Note]
+
+* [觸發條件]:
+  - "建立、修改、調試或理解 Chrome 瀏覽器擴充功能（Chrome Extension）或 Chrome Extensions API 時。"
+  - "當提及 'Chrome extension'、'browser extension'、'manifest.json'、'content script'、'service worker'、'popup'、'side panel'、'chrome.* API' 或發佈至 Chrome Web Store 等關鍵字時。"
 
 ## find-skills
 [find-skills](C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md)
@@ -131,7 +156,7 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "當使用者提出「如何做 X」、「尋找 X 技能」、「是否有能做...的技能」以尋找或安裝 Agent 技能時。"
 
 ## firebase
 [firebase](C:/Users/9910008/.gemini/config/plugins/firebase/plugin.json)
@@ -141,9 +166,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "藉由呼叫 MCP 工具或 API 執行"
+  - "需要使用 Firebase 命令行工具（CLI）來設定、初始化、登入、管理 Firebase 專案，或是使用 Firebase 部署與資料庫指令時。"
 
-## firebase-ai-logic-basics
+### firebase-ai-logic-basics
 [firebase-ai-logic-basics](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_ai_logic_basics/SKILL.md)
 
 * [功能簡介]:
@@ -152,9 +177,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "需要將 Firebase AI Logic（Gemini API）整合到 Web 應用程式中，涉及設定、多模態推理、結構化輸出或安全規則時。"
 
-## firebase-app-hosting-basics
+### firebase-app-hosting-basics
 [firebase-app-hosting-basics](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_app_hosting_basics/SKILL.md)
 
 * [功能簡介]:
@@ -163,9 +188,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "需要使用 Firebase App Hosting 部署與管理 Next.js、Angular 等帶有後端的現代 Web 應用程式時。"
 
-## firebase-auth-basics
+### firebase-auth-basics
 [firebase-auth-basics](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_auth_basics/SKILL.md)
 
 * [功能簡介]:
@@ -174,9 +199,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "應用程式需要設定 Firebase Authentication 進行用戶登入、用戶管理，或使用驗證規則（auth rules）進行安全數據存取時。"
 
-## firebase-basics
+### firebase-basics
 [firebase-basics](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_basics/SKILL.md)
 
 * [功能簡介]:
@@ -185,9 +210,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "檢查 Firebase CLI 版本、初始化 Firebase 環境、登入驗證、設定作用中專案，或配置 google-services.json、GoogleService-Info.plist 檔案時。"
 
-## firebase-crashlytics
+### firebase-crashlytics
 [firebase-crashlytics](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_crashlytics/SKILL.md)
 
 * [功能簡介]:
@@ -196,9 +221,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "設定 Firebase Crashlytics、整合崩潰回報 SDK 或分析 iOS/Android 應用程式的異常崩潰報告時。"
 
-## firebase-data-connect
+### firebase-data-connect
 [firebase-data-connect](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_data_connect_basics/SKILL.md)
 
 * [功能簡介]:
@@ -207,9 +232,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "設計 Firebase Data Connect (SQL Connect) 的 PostgreSQL 關聯式資料庫綱要、撰寫授權的 GraphQL 查詢與變更，或生成型別安全 SDK 時。"
 
-## firebase-firestore
+### firebase-firestore
 [firebase-firestore](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_firestore/SKILL.md)
 
 * [功能簡介]:
@@ -218,9 +243,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "列出或建立 Cloud Firestore 數據庫、配置 Firestore 安全規則、設計資料模型、撰寫客戶端 SDK 查詢或檢查索引時。"
 
-## firebase-hosting-basics
+### firebase-hosting-basics
 [firebase-hosting-basics](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_hosting_basics/SKILL.md)
 
 * [功能簡介]:
@@ -229,9 +254,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "部署靜態網頁、單頁應用程式（SPA），或使用經典的 Firebase Hosting 部署輕量微服務時。"
 
-## firebase-remote-config-basics
+### firebase-remote-config-basics
 [firebase-remote-config-basics](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_remote_config_basics/SKILL.md)
 
 * [功能簡介]:
@@ -240,9 +265,9 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "設定 Firebase Remote Config、管理 Feature Flags（功能開關），或動態變更應用程式行為時。"
 
-## firebase-security-rules-auditor
+### firebase-security-rules-auditor
 [firebase-security-rules-auditor](C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_security_rules_auditor/SKILL.md)
 
 * [功能簡介]:
@@ -251,29 +276,29 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "更新、審查或評估 Cloud Firestore 安全規則的安全性以防止漏洞時。"
+
+### xcode-project-setup
+[xcode-project-setup](C:/Users/9910008/.gemini/config/plugins/firebase/skills/xcode_project_setup/SKILL.md)
+
+* [功能簡介]:
+  - 安全修改 Xcode 專案結構（.pbxproj）。
+  - 用於添加 Swift 套件依賴、連結檔案（如導入 Firebase、Alamofire 等）。
+* [User_Note]
+
+* [觸發條件]:
+  - "修改 Xcode 專案結構、添加 Swift Packages 依賴或連結專案檔案（如導入 Firebase、Alamofire 等）時。"
 
 ## google-antigravity-sdk
 [google-antigravity-sdk](C:/Users/9910008/.gemini/config/plugins/google-antigravity-sdk/skills/google-antigravity-sdk/SKILL.md)
 
 * [功能簡介]:
-  - 設計、實作並調試自主 AI Agent 與多 Agent 系統的官方 SDK 指引。
+  - 設計、實作並調試自主 AI Agent 與多 Agent 系統 of 官方 SDK 指引。
   - 在需要創建或編排 Antigravity Agent 時使用。
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
-
-## memory-leak-debugging
-[memory-leak-debugging](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md)
-
-* [功能簡介]:
-  - 診斷與解決 JavaScript/Node.js 應用程式中的記憶體流失。
-  - 用於記憶體佔用過高、記憶體溢出（OOM）錯誤分析、堆積快照（heap snapshot）比對。
-* [User_Note]
-
-* [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "使用 Google Antigravity (AGY) SDK 設計、實作、配置或編排多 Agent 與自主 AI 代理系統時。"
 
 ## modern-web-guidance
 [modern-web-guidance](C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/modern-web-guidance/SKILL.md)
@@ -284,7 +309,7 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "涉及現代前端 UI 佈局（彈窗、玻璃擬態、錨點定位）、滾動與動畫、前端效能（INP/LCP）、瀏覽器 API（文件系統存取、WebUSB、WebAssembly）或框架佈局整合時。"
 
 ## modern-web-guidance-plugin
 [modern-web-guidance-plugin](C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/plugin.json)
@@ -294,20 +319,17 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "藉由呼叫 MCP 工具或 API 執行"
+  - "需要調用現代前端最佳實踐外掛的相關功能時。"
 
-## skill-manager
-[skill-manager](C:/Users/9910008/.gemini/antigravity/skills/skill-manager/SKILL.md)
+## safe-searcher
+[safe-searcher](C:/Users/9910008/.gemini/antigravity/skills/safe-searcher/SKILL.md)
 
 * [功能簡介]:
-  - 管理所有本機安裝的 Antigravity Agent 技能與工作流。
-  - 提供 /skill-manager 指令進行目錄掃描與清單列表呈現。
+  - 專職於程式碼檢索的子代理（Sub-Agent），以防禦性、高效能的方式安全地檢索程式碼。
 * [User_Note]
 
 * [觸發條件]:
-  - "/ship"
-  - "/qa"
-  - "/slash"
+  - "當主 Agent 需要在專案中搜尋 function、類別、檔案或進行關鍵字搜尋（grep/ripgrep）時。"
 
 ## skill-security-scan
 [skill-security-scan](C:/Users/9910008/.gemini/antigravity/skills/skill-security-scan/SKILL.md)
@@ -316,20 +338,9 @@
   - 掃描與檢驗其他 Agent 技能的安全風險（例如網絡請求、任意指令執行、文件系統存取）。
   - 適用於審查、檢查或验证本機或第三方技能的安全性。
 * [User_Note]
-
+  - "當使用 npm 或其它第三方工具拉取網路上的 Skill Package 安裝之後自動執行。"
 * [觸發條件]:
-  - "依照意圖匹配觸發"
-
-## troubleshooting
-[troubleshooting](C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/troubleshooting/SKILL.md)
-
-* [功能簡介]:
-  - 使用 Chrome 開發者工具調試與解決連線或目標問題。
-  - 在 list_pages、new_page 或導航失敗時觸發。
-* [User_Note]
-
-* [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "當使用者要求對本地或第三方 Skill 進行安全審查、靜態安全掃描或驗證安全性時。"
 
 ## vs-markdown-collab
 [vs-markdown-collab](C:/Users/9910008/.gemini/antigravity/skills/vs-markdown-collab/SKILL.md)
@@ -339,15 +350,4 @@
 * [User_Note]
 
 * [觸發條件]:
-  - "依照意圖匹配觸發"
-
-## xcode-project-setup
-[xcode-project-setup](C:/Users/9910008/.gemini/config/plugins/firebase/skills/xcode_project_setup/SKILL.md)
-
-* [功能簡介]:
-  - 安全修改 Xcode 專案結構（.pbxproj）。
-  - 用於添加 Swift 套件依賴、連結檔案（如導入 Firebase、Alamofire 等）。
-* [User_Note]
-
-* [觸發條件]:
-  - "依照意圖匹配觸發"
+  - "當使用者要求處理、回應、採納 Markdown 文件的審查意見（review comments），或要求您對 Markdown 文件進行審查、留下審查意見時。"

@@ -105,3 +105,25 @@ description: "技能守門員。當 Agent 評估任務可能需要使用技能�
      - **Force 模式**：重新翻譯所有專案技能，回填 `User_Note` 筆記，完整覆寫專案目錄下的 `project-skill-list.md`。
      - **Quick 模式**：讀取現有的 `project-skill-list.md`，將新增技能的翻譯描述增量併入 Markdown 中，其餘舊有描述與筆記保留。
      - **孤兒備忘與雙向備份**：比對後剩餘的未配對筆記寫入 Markdown 尾部的 `## ⚠️ 孤兒備忘錄 (Orphan Notes)`。最後，將完整合併的專案筆記寫回 `.agent/skills/00-skill-gate/asset/project-user-notes.md` 進行備份。
+
+---
+
+## 📝 技能與外掛翻譯彙整規範 (Translation & Synthesis Guidelines)
+
+當 Agent 讀取 `SKILL.md` 或 `plugin.json` 並編寫 `global-skill-list.md` / `project-skill-list.md` 時，必須嚴格遵守以下翻譯與彙整規範，嚴禁「過度泛化」：
+
+1. **[功能簡介] (Description)**：
+   - 應精確、具體地描述該工具的用途與它能解決的實際問題，且每個技能的字數說明限制在 150 字以內。
+   - 避免使用空泛、無意義或通用的描述。
+
+2. **[觸發條件] (Trigger Conditions) (極重要)**：
+   - **嚴禁使用**通用模糊的 `"依照意圖匹配觸發"` 或 `"藉由呼叫 MCP 工具或 API 執行"`。
+   - 必須仔細閱讀技能 `SKILL.md` 的 YAML frontmatter 中的 `description` 欄位，或者外掛 `plugin.json` 中的說明，將其所述的**具體觸發關鍵字、提及字詞 (mentions of)、使用場景、特定的程式語言/框架/工具名稱**完整且精確地列出。
+   - 範例：若技能是 `firebase-auth-basics`，應列出：*「當使用者提到 Firebase Authentication、登入系統、用戶註冊、登出、驗證規則 (auth rules) 等需求時觸發。」*
+
+3. **[結構化分類與階層] (Structural Classification & Hierarchy) (極重要)**：
+   - 凡是屬於同一個插件或插件下的子技能（Sub-skills），必須歸類在同一個母標題下，以保持清單結構清晰，不可全部用 `##` 二級標題並列。
+   - **母分類**：使用 `## [母分類名稱]`（二級標題，例如 `## chrome-devtools`、`## firebase`），並在其下方列出該母分類的核心簡介、備註與觸發條件。
+   - **子技能**：在母分類下方使用 `### [子技能名稱]`（三級標題，例如 `### a11y-debugging`、`### firebase-auth-basics` 等）進行收納，並編寫其對應的簡介與觸發條件。
+   - 母分類內部的子技能排序，應遵循頻率排序，常用的子技能排在上方。
+
