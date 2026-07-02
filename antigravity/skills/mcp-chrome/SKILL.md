@@ -12,12 +12,8 @@ description: |
 - 使用您的日常 Chrome 瀏覽器進行自動化操作與調試。
 - 保留使用者的登入狀態與配置，避免無痕視窗帶來的困擾。
 
-## User_Note
-- 已經設定於 `mcp_config.json` 之中。
-- 用以替代原本的 `chrome-devtools`。
-
 ## 觸發條件
-- "依照意圖匹配觸發"
+- 呼叫 Chrome 相關指令時，將會自動觸發。
 
 ## 查詢目前開啟網頁
 - 執行 `./scripts/get_open_tabs.js`
