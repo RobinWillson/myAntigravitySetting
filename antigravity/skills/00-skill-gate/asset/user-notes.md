@@ -10,3 +10,14 @@
 
 ## find-skills
 在此寫下您對 find-skills 的補充說明。
+
+## mcp-chrome
+- 設定於 mcp_config.json 之中。
+- 用以替代原本 Graves/chrome-devtools。
+
+## gstack
+- 很複雜的 Skill, 還沒測試過
+- 文件中似乎也說了要安裝很多依賴, 有用到的時候再研究
+
+## skill-creator
+- 任何建立技能的動作發生時, 務必觸發

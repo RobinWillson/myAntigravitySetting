@@ -160,6 +160,9 @@ function main() {
   const wsIndex = args.indexOf('--workspace');
   const workspacePath = wsIndex !== -1 ? args[wsIndex + 1] : null;
 
+  const onlyIndex = args.indexOf('--only');
+  const onlySkill = onlyIndex !== -1 ? args[onlyIndex + 1] : null;
+
   const outIndex = args.indexOf('--output');
   let outputDir = outIndex !== -1 ? args[outIndex + 1] : path.join(__dirname, '..');
   outputDir = path.resolve(outputDir);
@@ -332,7 +335,9 @@ function main() {
 
   // Identify new global items for cache-task.json
   let newGlobalItems = [];
-  if (mode === 'quick') {
+  if (onlySkill) {
+    newGlobalItems = globalItemsMapped.filter(item => item.name.toLowerCase() === onlySkill.toLowerCase());
+  } else if (mode === 'quick') {
     newGlobalItems = globalItemsMapped.filter(item => {
       const normPath = item.path.toLowerCase();
       return !existingGlobalMap.has(normPath);
@@ -375,7 +380,9 @@ function main() {
 
     // Identify new project items for project-cache-task.json
     let newProjectItems = [];
-    if (mode === 'quick') {
+    if (onlySkill) {
+      newProjectItems = projectItemsMapped.filter(item => item.name.toLowerCase() === onlySkill.toLowerCase());
+    } else if (mode === 'quick') {
       newProjectItems = projectItemsMapped.filter(item => {
         const normPath = item.path.toLowerCase();
         return !existingProjectMap.has(normPath);

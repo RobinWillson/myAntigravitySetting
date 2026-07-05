@@ -77,7 +77,7 @@ skill-name/
 ├── SKILL.md (必要)
 │   ├── YAML frontmatter (必須包含 name 和 description)
 │   └── Markdown 說明指令
-└── Bundled Resources (選填，隨附資源)
+└── Bundled Resources (必要，如無內容則僅建立資料夾)
     ├── scripts/    - 用於確定性/重複性任務的可執行程式碼
     ├── references/ - 根據需要載入到上下文中的文件
     └── assets/     - 輸出中使用的檔案（範本、圖示、字型）

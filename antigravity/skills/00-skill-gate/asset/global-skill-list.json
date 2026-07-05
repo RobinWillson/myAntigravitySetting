@@ -115,6 +115,11 @@
     "path": "C:/Users/9910008/.gemini/config/plugins/google-antigravity-sdk/skills/google-antigravity-sdk/SKILL.md"
   },
   {
+    "name": "markdown-rule",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/markdown-rule/SKILL.md"
+  },
+  {
     "name": "memory-leak-debugging",
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/memory-leak-debugging/SKILL.md"
@@ -134,7 +139,6 @@
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/antigravity/skills/safe-searcher/SKILL.md"
   },
-
   {
     "name": "skill-security-scan",
     "isMCP": false,

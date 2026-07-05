@@ -22,7 +22,8 @@
   - 提供角色斜線指令（如 /office-hours, /plan-ceo-review, /review, /qa, /ship 等）。
   - 提供 headless 瀏覽器功能進行 E2E/QA 驗證。
 * [User_Note]
-
+  - 很複雜的 Skill, 還沒測試過
+  - 文件中似乎也說了要安裝很多依賴, 有用到的時候再研究
 * [觸發條件]:
   - "/office-hours"
   - "/plan-ceo-review"
@@ -38,7 +39,7 @@
   - 建立新技能、修改與優化既有技能，並評估技能效能。
   - 適用於從頭建立技能、編輯或調整技能、執行評測、基準測試，或優化技能的觸發描述。
 * [User_Note]
-
+  - 任何建立技能的動作發生時, 務必觸發
 * [觸發條件]:
   - "/skill-test"
   - "/skill-create"
@@ -51,7 +52,6 @@
   - 將其與所有已安裝的全局和專案技能/MCP 進行比對，判斷是否有適用的工具，並列出選項供使用者選擇。
   - 同時具有工具清單整理的功能
 * [User_Note]
-
 * [觸發條件]:
   - "/00-skill-gate"
   - "/gate"
@@ -154,7 +154,7 @@
   - 協助使用者發現與安裝 Agent 技能。
   - 當提出諸如「如何做 X」、「尋找 X 技能」、「是否有能做...的技能」時，使用此技能以尋找安裝選項。
 * [User_Note]
-
+  - 在此寫下您對 find-skills 的補充說明。
 * [觸發條件]:
   - "當使用者提出「如何做 X」、「尋找 X 技能」、「是否有能做...的技能」以尋找或安裝 Agent 技能時。"
 
@@ -299,6 +299,17 @@
 
 * [觸發條件]:
   - "使用 Google Antigravity (AGY) SDK 設計、實作、配置或編排多 Agent 與自主 AI 代理系統時。"
+
+## markdown-rule
+[markdown-rule](C:/Users/9910008/.gemini/antigravity/skills/markdown-rule/SKILL.md)
+
+* [功能簡介]:
+  - 在建立或修改任何 Markdown 文件時執行。
+  - 嚴格禁止在 Markdown 內寫入 API 金鑰（API Key）、帳號密碼，以及本機絕對路徑，確保資訊安全。
+* [User_Note]
+
+* [觸發條件]:
+  - "在任何建立、寫入或修改 Markdown 檔案（如 .md 檔案）時觸發。"
 
 ## modern-web-guidance
 [modern-web-guidance](C:/Users/9910008/.gemini/config/plugins/modern-web-guidance-plugin/skills/modern-web-guidance/SKILL.md)
