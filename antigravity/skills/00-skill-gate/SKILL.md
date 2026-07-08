@@ -13,7 +13,7 @@ description: "技能守門員。當 Agent 評估任務可能需要使用技能�
 
   * 準備呼叫任何技能前，必須先讀取以下的技能清單，從中挑選最適合的技能
   * 全局技能清單：[global-skill-list.md](asset/global-skill-list.md)
-  * 專案清單：[project-skill-list.md](.agent/skills/00-skill-gate/asset/project-skill-list.md)
+  * 專案清單：[project-skill-list.md](.agents/skills/00-skill-gate/asset/project-skill-list.md)
   * 挑選後，必須向使用者說明，並將匹配的技能或 MCP 列在選單中請使用者選擇
   * 獲得使用者明確同意後，才能開始載入並執行該技能；若拒絕則直接依原始意圖執行
 
@@ -93,7 +93,7 @@ description: "技能守門員。當 Agent 評估任務可能需要使用技能�
     - Quick 模式：`node scripts/scan-gate-skills.js --mode quick --workspace <當前工作區路徑>`
   * 讀取 project-cache-task.json 檔案
   * User_Note 載入與保護機制
-  * 讀取專案下的獨立備份檔案 `.agent/skills/00-skill-gate/asset/project-user-notes.md`（若存在）
+  * 讀取專案下的獨立備份檔案 `.agents/skills/00-skill-gate/asset/project-user-notes.md`（若存在）
   * 讀取現有的 `project-skill-list.md`（若存在），提取 `### [User_Note]` 的內容並建立映射表（獨立備份優先）
   * 關鍵輸出格式
   * 讀取 `project-cache-task.json`，若為空 `[]`，表示無新專案技能，Agent 同步備份筆記後回報完成
@@ -101,7 +101,7 @@ description: "技能守門員。當 Agent 評估任務可能需要使用技能�
   * Force 模式：重新翻譯所有專案技能，回填 `User_Note` 筆記，完整覆寫專案目錄下的 `project-skill-list.md`
   * Quick 模式：讀取現有的 `project-skill-list.md`，將新增技能的翻譯描述增量併入，其餘舊有描述與筆記保留
   * 孤兒備忘與雙向備份：比對後剩餘的未配對筆記寫入 `project-skill-list.md` 尾部的 `## 孤兒備忘錄 (Orphan Notes)`
-  * 將完整合併的專案筆記寫回 `.agent/skills/00-skill-gate/asset/project-user-notes.md` 進行備份
+  * 將完整合併的專案筆記寫回 `.agents/skills/00-skill-gate/asset/project-user-notes.md` 進行備份
 
   ### 指定技能更新
 

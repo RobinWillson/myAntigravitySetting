@@ -234,7 +234,7 @@ function main() {
     } else {
       // Load existing project skills cache if in quick mode
       if (mode === 'quick') {
-        const projAssetDir = path.join(workspacePath, '.agent', 'skills', '00-skill-gate', 'asset');
+        const projAssetDir = path.join(workspacePath, '.agents', 'skills', '00-skill-gate', 'asset');
         const projListJsonPath = path.join(projAssetDir, 'project-skill-list.json');
         if (fs.existsSync(projListJsonPath)) {
           try {
@@ -358,7 +358,7 @@ function main() {
 
   // Generate project/workspace outputs if workspace is provided and not skipped
   if (workspacePath && !skipProjectScan) {
-    const projAssetDir = path.join(workspacePath, '.agent', 'skills', '00-skill-gate', 'asset');
+    const projAssetDir = path.join(workspacePath, '.agents', 'skills', '00-skill-gate', 'asset');
     if (!fs.existsSync(projAssetDir)) {
       fs.mkdirSync(projAssetDir, { recursive: true });
     }
