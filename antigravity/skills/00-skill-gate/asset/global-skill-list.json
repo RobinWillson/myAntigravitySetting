@@ -10,6 +10,11 @@
     "path": "C:/Users/9910008/.gemini/antigravity/skills/gstack/SKILL.md"
   },
   {
+    "name": "find-skills",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md"
+  },
+  {
     "name": "skill-creator",
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/antigravity/skills/skill-creator/SKILL.md"
@@ -48,11 +53,6 @@
     "name": "debug-optimize-lcp",
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/config/plugins/chrome-devtools-plugin/skills/debug-optimize-lcp/SKILL.md"
-  },
-  {
-    "name": "find-skills",
-    "isMCP": false,
-    "path": "C:/Users/9910008/.gemini/antigravity/skills/find-skills/SKILL.md"
   },
   {
     "name": "firebase",
@@ -108,6 +108,11 @@
     "name": "firebase-security-rules-auditor",
     "isMCP": false,
     "path": "C:/Users/9910008/.gemini/config/plugins/firebase/skills/firebase_security_rules_auditor/SKILL.md"
+  },
+  {
+    "name": "gog",
+    "isMCP": false,
+    "path": "C:/Users/9910008/.gemini/antigravity/skills/gog/SKILL.md"
   },
   {
     "name": "google-antigravity-sdk",

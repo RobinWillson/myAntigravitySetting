@@ -289,6 +289,19 @@
 * [觸發條件]:
   - "修改 Xcode 專案結構、添加 Swift Packages 依賴或連結專案檔案（如導入 Firebase、Alamofire 等）時。"
 
+## gog
+[gog](C:/Users/9910008/.gemini/antigravity/skills/gog/SKILL.md)
+
+* [功能簡介]:
+  - 使用 gog 命令行工具管理 Google Workspace 服務（Gmail, Calendar, Drive, Contacts, Sheets, Docs）。
+  - 能發送或搜尋郵件、管理行事曆行程、查詢或更新試算表、匯出 Google 文件。
+* [User_Note]
+  - Windows 桌面環境下，若已登入，Windows 憑證管理員會自動處理憑證解密，一般免去設定 GOG_KEYRING_PASSWORD 環境變數。
+* [觸發條件]:
+  - "需要存取、搜尋、發送 Gmail 郵件，或管理日曆行程時。"
+  - "需要讀寫 Google Sheets 試算表或讀取 Google Docs 文件時。"
+  - "涉及任何 Google Workspace 服務自動化操作時。"
+
 ## google-antigravity-sdk
 [google-antigravity-sdk](C:/Users/9910008/.gemini/config/plugins/google-antigravity-sdk/skills/google-antigravity-sdk/SKILL.md)
 

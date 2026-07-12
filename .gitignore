@@ -49,4 +49,7 @@ antigravity/onboarding.json.lock
 *.log
 *.lock
 
+# gog
+gog.exe
+
 

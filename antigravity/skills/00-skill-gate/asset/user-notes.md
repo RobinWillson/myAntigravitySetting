@@ -21,3 +21,6 @@
 
 ## skill-creator
 - 任何建立技能的動作發生時, 務必觸發
+
+## gog
+- Windows 桌面環境下，若已登入，Windows 憑證管理員會自動處理憑證解密，一般免去設定 GOG_KEYRING_PASSWORD 環境變數。
