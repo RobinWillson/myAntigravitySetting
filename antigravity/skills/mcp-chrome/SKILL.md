@@ -26,3 +26,6 @@ description: |
 ## 開啟新分頁
 - 執行 `./scripts/open_new_tab.js`
 - 如需更多詳細資訊，請參考：[open_new_tab.md](./reference/open_new_tab.md)
+
+## 其他功能
+- 參考 "./reference/tool-list.json"

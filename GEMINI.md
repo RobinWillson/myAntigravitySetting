@@ -57,6 +57,10 @@
 ## 🤖 Agent 技能與行為規範
 
 ### 1. 技能使用守則 (Skill Usage Policy)
-- **MANDATORY**: 在接收到使用者的任何 prompt 時，若你判斷該任務可能需要使用到額外的技能（Skill）或 MCP 工具，**嚴禁自行決定並直接執行**。
-- 準備呼叫任何技能前，你必須先去讀取技能守門員（`~/.gemini/antigravity/skills/00-skill-gate/SKILL.md`），並嚴格遵循其中的流程來挑選技能與徵求使用者同意。
+- 當使用者輸入 "/skill" 時, 表示使用者需要使用 skill
+- 立即查找 "\.gemini\antigravity\skills\00-skill-gate\asset\global-skill-list.md" 查看是否有對應的技能
+- 如專案內有".agent"資料夾存在, 亦去查找".agent/skills/00-skill-gate/asset/project-skill-list.md"
 
+## 網頁搜尋規範
+- 禁止使用內建的 browser_subagent
+- 優先使用 skill : mcp-chrome, 以使用者登入狀態搜尋

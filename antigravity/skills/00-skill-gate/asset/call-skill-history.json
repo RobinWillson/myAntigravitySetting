@@ -11,5 +11,8 @@
   { "datetime": "2026-06-21 18:44:41", "skill": "mcp-chrome" },
   { "datetime": "2026-06-21 19:37:53", "skill": "mcp-chrome" },
   { "datetime": "2026-07-08 12:36:05", "skill": "process_stock_news" },
-  { "datetime": "2026-07-08 13:57:28", "skill": "find-skills" }
+  { "datetime": "2026-07-08 13:57:28", "skill": "find-skills" },
+  { "datetime": "2026-07-12 20:46:00", "skill": "mcp-chrome" },
+  { "datetime": "2026-07-12 23:27:17", "skill": "mcp-chrome" },
+  { "datetime": "2026-07-12 23:40:49", "skill": "markdown-rule" }
 ]
