@@ -7,6 +7,7 @@ antigravity-backup/
 
 # Sensitive Credentials, Tokens, & Auth Data (Extremely Important!)
 .env/
+.env.local
 r103_gcloud_API_Auth/
 
 # Browser profiles (contains session cookies, passwords, history)
@@ -46,6 +47,10 @@ antigravity/onboarding.json.lock
 
 # Dynamic Caches & Locks
 *_cache.json
+global-skill-list.json
+cache-task.json
+project-skill-list.json
+project-cache-task.json
 *.log
 *.lock
 

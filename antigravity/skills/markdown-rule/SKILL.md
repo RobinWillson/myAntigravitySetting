@@ -26,8 +26,8 @@ description: "建立或修改 markdown 文件時觸發。嚴禁 agent 在 markdo
     
     * 優先使用相對於專案或工作區根目錄的相對路徑（如：`./docs/readme.md`），
     * 如必要使用絕對路徑，請排除個人化資訊，
-    * 在 windows 寫成 `C:\Users\<username>`
-    * 在 mac 寫成 `/Users/<username>`
+    * 嚴禁在內容中公開個人電腦的實際使用者名稱。應在 `.gemini` 底下建立 `.env.local` 檔案（寫入 `USER_NAME=your_username`）以儲存本機使用者名稱，在 Markdown 中使用下列方式替代：
+      - `/Users/<username>`
 
   ---
 
@@ -35,8 +35,8 @@ description: "建立或修改 markdown 文件時觸發。嚴禁 agent 在 markdo
 
    在執行任何會寫入或修改 Markdown 檔案的工具（如 `write_to_file`、`replace_file_content`、`multi_replace_file_content`）之前，請務必執行以下步驟：
 
-   * 內容審查 (Content Scan)：
-      - 仔細檢查即將寫入的內容，確認是否包含本機絕對路徑（特別注意 `C:\Users\9910008` 或 `c:\`）。
+    * 內容審查 (Content Scan)：
+      - 仔細檢查即將寫入的內容，確認是否包含本機絕對路徑。
       - 檢查是否無意中夾帶了 API 金鑰（如暫存的測試金鑰）或明文帳號密碼。
 
    * 禁止自動替換 (Auto-Sanitization)：

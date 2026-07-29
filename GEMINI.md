@@ -64,3 +64,8 @@
 ## 網頁搜尋規範
 - 禁止使用內建的 browser_subagent
 - 優先使用 skill : mcp-chrome, 以使用者登入狀態搜尋
+
+---
+## 🛡️ 個人隱私與使用者名稱保護規範 (Privacy & Username Protection Policy)
+- **禁止公開本機使用者名稱**：在建立、修改或分析任何檔案（特別是 Markdown 檔案與技能清單）時，嚴禁在內容中公開個人電腦的實際使用者名稱
+- **建立與讀取 .env.local**：必須在 `.gemini` 底下建立 `.env.local` 檔案（寫入 `USER_NAME=your_username`）以儲存本機使用者名稱。Agent 讀取路徑或產出技能快取時，應從 `.env.local` 或環境變數載入，或在文件中以 `<username>` 萬用字元替代，以防將實際用戶名寫入將上傳至 GitHub 的公開文件中。
