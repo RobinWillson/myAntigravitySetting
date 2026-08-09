@@ -361,3 +361,13 @@
 * [User_Note]
 * [觸發條件]:
   - "當需要進行前端網頁設計、UI 排版佈局、配色方案與字體選擇，或要求避免 AI 套版與 Slop 風格時觸發。"
+
+## dev-hard-experience
+[dev-hard-experience](/Users/<username>/.gemini/antigravity/skills/dev-hard-experience/SKILL.md)
+
+* [功能簡介]:
+  - 開發困難點與除錯經驗庫。
+  - 在開發過程中遭遇連續三次無法解決的問題時，紀錄現象、環境、嘗試過失敗做法與最終有效解決方案，以便日後直接套用。
+* [User_Note]
+* [觸發條件]:
+  - "紀錄困難點"、"查看困難"、"開發困難"、"參考困難文檔"、"/hard dev"、"/dev hard"
