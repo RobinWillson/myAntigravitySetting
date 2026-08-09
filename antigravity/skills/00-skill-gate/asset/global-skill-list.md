@@ -141,6 +141,16 @@
   - "建立、修改、調試或理解 Chrome 瀏覽器擴充功能（Chrome Extension）或 Chrome Extensions API 時。"
   - "當提及 'Chrome extension'、'browser extension'、'manifest.json'、'content script'、'service worker'、'popup'、'side panel'、'chrome.* API' 或發佈至 Chrome Web Store 等關鍵字時。"
 
+## chrome-extension-standard
+[chrome-extension-standard](/Users/<username>/.gemini/antigravity/skills/chrome-extension-standard/SKILL.md)
+
+* [功能簡介]:
+  - 本專案規範開發 Chrome 擴充功能（Manifest V3）的核心架構與指引。
+  - 涵蓋動態腳本注入（`chrome.scripting.executeScript`）、`chrome.storage.local` 時間序列資料結構、批次寫入隊列、表單事件觸發與獨立分頁 Dashboard UI 等實作規範。
+* [User_Note]
+* [觸發條件]:
+  - "在開發、修改或規劃 Chrome 擴充功能（Chrome Extension），特別是涉及 Manifest V3、動態 Content Script 注入、`chrome.storage.local` 資料結構與架構設計時觸發。"
+
 ## find-skills
 [find-skills](/Users/<username>/.gemini/antigravity/skills/find-skills/SKILL.md)
 

@@ -50,6 +50,11 @@
     "path": "/Users/robinwillson/.gemini/config/plugins/chrome-devtools-plugin/plugin.json"
   },
   {
+    "name": "chrome-extension-standard",
+    "isMCP": false,
+    "path": "/Users/robinwillson/.gemini/antigravity/skills/chrome-extension-standard/SKILL.md"
+  },
+  {
     "name": "chrome-extensions-devtool",
     "isMCP": false,
     "path": "/Users/robinwillson/.gemini/config/plugins/modern-web-guidance-plugin/skills/chrome-extensions-devtool/SKILL.md"
@@ -58,6 +63,11 @@
     "name": "debug-optimize-lcp",
     "isMCP": false,
     "path": "/Users/robinwillson/.gemini/config/plugins/chrome-devtools-plugin/skills/debug-optimize-lcp/SKILL.md"
+  },
+  {
+    "name": "dev-hard-experience",
+    "isMCP": false,
+    "path": "/Users/robinwillson/.gemini/antigravity/skills/dev-hard-experience/SKILL.md"
   },
   {
     "name": "firebase",

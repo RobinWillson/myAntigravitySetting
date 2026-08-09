@@ -24,3 +24,6 @@
 
 ## gog
 - Windows 桌面環境下，若已登入，Windows 憑證管理員會自動處理憑證解密，一般免去設定 GOG_KEYRING_PASSWORD 環境變數。
+
+## chrome-extension-standard
+在此寫下您對 chrome-extension-standard 的手寫備忘或特殊設定說明。
