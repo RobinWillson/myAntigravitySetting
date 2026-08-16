@@ -25,6 +25,18 @@ ready:
     -   Explain that the API key can be passed explicitly in code as shorthand
         (e.g., `LocalAgentConfig(api_key="...")`) or automatically read from the
         environment.
+    -   For Gemini Enterprise Agent Platform (formerly Vertex AI)
+        authentication, the SDK supports both Standard Mode and Express Mode:
+        -   **Standard Mode (ADC)**: Instruct the user to run
+            `gcloud auth application-default login` and configure the agent with
+            `vertex=True` along with `project` and `location` in
+            `LocalAgentConfig`.
+        -   **Express Mode (API Key)**: Configure the agent with `vertex=True`
+            along with `api_key="your-express-api-key"` in `LocalAgentConfig`
+            (no ADC or regional project/location needed).
+    -   **Note**: For local models (`LiteRTAgentConfig` or
+        `LocalOpenAIAgentConfig`), no API key or cloud credentials are needed.
+        See `references/local_models.md` for setup details.
 
 ## Routing Table
 
@@ -37,9 +49,11 @@ relevant information.
 -   If the user needs to understand the high-level overview and core concepts of
     the Google Antigravity SDK (Agent, Conversation, Connection), read
     `references/architecture.md`.
--   If the user needs to perform advanced agent configuration, select
-    appropriate models, or understand the critical rules for model identifiers
-    to avoid assumptions, read `references/agent_configuration.md`.
+-   If the user needs to perform advanced agent configuration (e.g., selecting
+    appropriate models, configuring execution behavior via `agent_behavior`—defaulting
+    to autonomous vs interactive—or configuring connection reliability), or
+    understand the critical rules for model identifiers to avoid assumptions,
+    read `references/agent_configuration.md`.
 -   If the user needs to extend an agent's capabilities by integrating Model
     Context Protocol (MCP) servers, or configure tool permissions for the agent,
     read `references/mcp_integration.md`.
@@ -53,11 +67,18 @@ relevant information.
     tokens), or build custom audit logs for advanced monitoring, read
     `references/observability.md`.
 -   If the user needs to see a list of built-in tools and understand their default state, read `references/built_in_tools.md`.
+-   If the user needs to run agents locally using on-device models (e.g., Gemma
+    via LiteRT, or via OpenAI-compatible APIs), understand hardware
+    requirements, or set up a local model environment, read
+    `references/local_models.md`.
 
 ### Examples
 
 -   If the user needs to implement basic agent behavior, streaming responses, or
     expose internal thoughts, read `examples/getting_started/hello_world.md`.
+-   If the user needs to customize or override default retry behavior and
+    exponential backoff for API errors or schema validation, read
+    `examples/getting_started/customizing_retries.md`.
 -   If the user needs to equip an agent with custom capabilities (tools) derived
     from Python functions, or maintain agent state across tool execution, read
     `examples/getting_started/custom_tool.md`.
@@ -78,6 +99,8 @@ relevant information.
 -   If the user needs to intercept agent lifecycle events (e.g., pre/post turn,
     tool execution, errors) to customize execution flow, read
     `examples/getting_started/hooks.md`.
+-   If the user needs to implement turn-level cancellation or programmatic
+    stream aborts, read `examples/getting_started/cancellation.md`.
 -   If the user needs to implement persistent agents that remember past
     interactions across sessions, read
     `examples/getting_started/persistence.md`.
@@ -89,3 +112,16 @@ relevant information.
     `examples/getting_started/structured_output.md`.
 -   If the user needs to add, configure, or load agent skills into the Google
     Antigravity SDK agent, read `examples/getting_started/agent_skills.md`.
+-   If the user needs to enable and use built-in web tools (like Google Search
+    or URL fetching) with the agent, read
+    `examples/getting_started/web_tools.md`. (Note: when fetching massive web
+    pages or articles, pair `read_url_content` with `view_file` to inspect
+    cached disk files).
+-   If the user needs to enforce session operational limits (model or
+    tool calls) or proactive token budget controls (input, output, or
+    total tokens) and handle `StopReason`, read
+    `examples/getting_started/budget_limits.md`.
+-   If the user needs to set up and run a local model agent (LiteRT with Gemma,
+    or an OpenAI-compatible server like Ollama), including model download,
+    hardware requirements, and context window configuration, read
+    `examples/getting_started/local_models.md`.

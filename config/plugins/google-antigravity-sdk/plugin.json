@@ -1,6 +1,6 @@
 {
   "name": "google-antigravity-sdk",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Using the Google Antigravity Python SDK to build AI agents",
   "author": {
     "name": "Google"
