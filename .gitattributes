@@ -1,0 +1,7 @@
+# Set default behavior for all text files to use LF line endings across all platforms
+* text=auto eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.js text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
